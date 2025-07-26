@@ -1,6 +1,10 @@
 
 public class User {
 
+	// constant for number of modules in Java Tutor program
+	private final int MOD_COUNT = 4;
+	
+	// private class fields
 	private String userID = "";
 	private String password = "";
 	private String moduleTimestamp[];
@@ -8,60 +12,45 @@ public class User {
 	private String quizTimestamp[];
 	private int quizScore[];
 	
+	// default class constructor
 	public User()
 	{
+		// initialize userID and password fields with null values
 		userID = "";
 		password = "";
-		 // Initialize arrays with size 4
-        moduleTimestamp = new String[4];
-        moduleLessonNumber = new int[4];
-        quizTimestamp = new String[4];
-        quizScore = new int[4];
+		// Initialize arrays with size MOD_COUNT
+		// and instantiate arrays for module-related user members
+        moduleTimestamp = new String[MOD_COUNT];
+        moduleLessonNumber = new int[MOD_COUNT];
+        quizTimestamp = new String[MOD_COUNT];
+        quizScore = new int[MOD_COUNT];
         
-        // Set default values
-        /*for (int i = 0; i < 4; i++) {
-            moduleTimestamp[i] = "";
-            moduleLessonNumber[i] = 0;
-            quizTimestamp[i] = "";
-            quizScore[i] = 0;
-        }*/
-        for (int i = 0; i < 4; i++) {
+        // initialize each array element (one for each module) with default values 
+        // these are baseline values before starting module lessons
+        for (int i = 0; i < MOD_COUNT; i++) {
             moduleTimestamp[i] = "00/00_00:00";
             moduleLessonNumber[i] = 0;
             quizTimestamp[i] = "00/00_00:00";
             quizScore[i] = 0;
         }
 	}
-	
-	public User(String u, String p, String mts[], int mll[], String qts[], int qs[])
-	{
-		userID = u;
-		password = p;
-		 // Initialize arrays
-        moduleTimestamp = new String[4];
-        moduleLessonNumber = new int[4];
-        quizTimestamp = new String[4];
-        quizScore = new int[4];
 
-        for (int i = 0; i < 4; i++) {
-            moduleTimestamp[i] = mts[i];
-            moduleLessonNumber[i] = mll[i];
-            quizTimestamp[i] = qts[i];
-            quizScore[i] = qs[i];
-        }
-	}
-	
+	// class constructor #1 instantiates User object with userID and password parameters
 	public User(String u, String p)
 	{
+		// initialize userID and password fields with parameter values
 		userID = u;
 		password = p;
-		// Initialize arrays
-        moduleTimestamp = new String[4];
-        moduleLessonNumber = new int[4];
-        quizTimestamp = new String[4];
-        quizScore = new int[4];
-
-        for (int i = 0; i < 4; i++) {
+		// Initialize arrays with size MOD_COUNT
+		// and instantiate arrays for module-related user members
+        moduleTimestamp = new String[MOD_COUNT];
+        moduleLessonNumber = new int[MOD_COUNT];
+        quizTimestamp = new String[MOD_COUNT];
+        quizScore = new int[MOD_COUNT];
+        
+        // initialize each array element (one for each module) with default values 
+        // these are baseline values before starting module lessons
+        for (int i = 0; i < MOD_COUNT; i++) {
             moduleTimestamp[i] = "00/00_00:00";
             moduleLessonNumber[i] = 0;
             quizTimestamp[i] = "00/00_00:00";
@@ -70,62 +59,82 @@ public class User {
 	}
 	
 	// mutator methods
+	// set userID field of User object
 	public void setUserID(String uid)
 	{
 		userID = uid;
 	}
-	
+
+	// set password field of User object
 	public void setPassword(String pw)
 	{
 		password = pw;
 	}
-	
+
+	// set timestamp field of User object array using module-number and timestamp passed via parameters
 	public void setModuleTimestamp(int module, String ts)
 	{
 		moduleTimestamp[module-1] = ts;
 	}
-	
+
+	// set module-number field of User object array using module-number and lesson-number passed via parameters
+	// NOTE: This method is not currently used but has been included for future implementation of bookmark
+	// feature to allow user to enter/leave module lesson and return at future time to complete the lesson
 	public void setModuleLessonNumber(int module, int ln)
 	{
 		moduleLessonNumber[module-1] = ln;
 	}
-	
+
+	// set MODULE timestamp field of User object array using module-number and MODULE timestamp passed via parameters
+	// NOTE: This method is not currently used but has been included for future implementation of bookmark
+	// feature to allow user to enter/leave module lesson and return at future time to complete the lesson
 	public void setQuizTimestamp(int module, String ts)
 	{
-		moduleTimestamp[module-1] = ts;
+		quizTimestamp[module-1] = ts;
 	}
-	
+
+	// set quiz-score field of User object array using module-number and quiz-score passed via parameters
 	public void setQuizScore(int module, int qs)
 	{
 		quizScore[module-1] = qs;
 	}
 	
 	// accessor methods
+	// return userID field
 	public String getUserID()
 	{
 		return userID;
 	}
 	
+	// return password field
 	public String getPassword()
 	{
 		return password;
 	}
 	
+	// return module timestamp field of array
+	// NOTE: This method is not currently used but has been included for future implementation of bookmark
+	// feature to allow user to enter/leave module lesson and return at future time to complete the lesson
 	public String getModuleTimestamp(int module)
 	{
 		return moduleTimestamp[module-1];
 	}
-	
+
+	// return module lesson-number field of array
+	// NOTE: This method is not currently used but has been included for future implementation of bookmark
+	// feature to allow user to enter/leave module lesson and return at future time to complete the lesson
 	public int getModuleLessonNumber(int module)
 	{
 		return moduleLessonNumber[module-1];
 	}
-	
+
+	// return quiz timestamp field of array
 	public String getQuizTimestamp(int module)
 	{
-		return moduleTimestamp[module-1];
+		return quizTimestamp[module-1];
 	}
-	
+
+	// return quiz score field of array
 	public int getQuizScore(int module)
 	{
 		return quizScore[module-1];

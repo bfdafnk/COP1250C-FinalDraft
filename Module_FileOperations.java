@@ -207,7 +207,7 @@ public class Module_FileOperations
  	 	  System.out.println("You may retake this module and quiz from the main menu.\n");
  		  completeStatus = false; 		   
  	   }
- 	   
+
  	  // return the module's completeStatus
  	  return completeStatus;
     }
