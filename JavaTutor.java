@@ -260,12 +260,12 @@ public class JavaTutor {
 			switch (option)
 			{	
 				case 1:
-					// call displayModulule_3() method with USER object argument and result from return value
-					//mod1complete = whatever-mod1-class-name.displayModule_1(user);
+					// call displayModulule_1() method with USER object argument and result from return value
+					mod1complete = Module_DataTypes.displayModule_1(user);
 					break;
 				case 2:
-					// call displayModulule_3() method with USER object argument and result from return value
-					//mod1complete = whatever-mod1-class-name.displayModule_1(user);
+					// call displayModulule_2() method with USER object argument and result from return value
+					mod2complete = Module_Loops.displayModule_2(user);
 					break;
 				case 3:
 					// call displayModulule_3() method with USER object argument and result from return value
@@ -310,7 +310,7 @@ public class JavaTutor {
 				{
 				complete = true;
 				System.out.println("You have completed all the modules!");
-				
+				System.out.println("Thank you for using the Java Tutorial program. Good bye . . . ");
 				}
 
 		}
