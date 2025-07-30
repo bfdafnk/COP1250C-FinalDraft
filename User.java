@@ -1,4 +1,3 @@
-
 public class User {
 
 	// constant for number of modules in Java Tutor program
